@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Event.destroy_all
+
+
+artShow = Event.create(
+    title:"Monet",
+    description: "free art show on the life of Monet and his work",
+    # starttime,endtime
+    category: "art",
+    location: "Museum of Fine Art"
+    )
+
+# concert = Event.create()
+# danceContest = Event.create()
+
