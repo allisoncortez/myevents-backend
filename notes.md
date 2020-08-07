@@ -4,8 +4,9 @@ a note on components:
 -Container components deal with managing state and class methods.
 -presentation components: this.props
 
-2 container components ( EventsContainer, NavContainer )
-5 stateless components ( EventInput, EventList, Event, NavLinks, Search)
+2 container components ( eventsContainer, commentsContainer )
+EventInput
+5 stateless components (EventList, Event, NavLinks, CommentCard, homepage)
 3 routes (eventlist, eventform, event(1))
 MUST
 -make use of react-router
@@ -13,6 +14,8 @@ MUST
 -use async actions and redux thunk middleware 
 -You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods
 
+diagram link:
+https://app.diagrams.net/#G1TYzHK0RLp5QKb4tPZUEsjAzWSkdJriYY
 
 MODEL: Event
 // belongs_to :user // :user_id - integer
