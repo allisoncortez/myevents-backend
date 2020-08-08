@@ -14,9 +14,14 @@ class Api::V1::EventsController < ApplicationController
          end
     end
 
-    # def show 
-    #     event = Event.find_by(id: params[:id])
-    #     # render json: GameSerializer.new(game)
+    def show 
+        event = Event.find_by(id: params[:id])
+        render json: event
+    end
+
+    # def destroy 
+    #     event = Event.find_by(id: params[:id]) 
+    #     event.destroy
     # end
 
     private
