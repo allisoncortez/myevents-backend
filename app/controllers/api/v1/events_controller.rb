@@ -2,13 +2,22 @@ class Api::V1::EventsController < ApplicationController
 
     def index
         events = Event.all 
-        render json: events
+        # render json: events
+        render json: EventSerializer.new(events)
+
+        # options = {
+        #     #include associated comments
+        #     include: [:comments]
+        # }
+
+        # render json: EventSerializer.new(events,options)
     end
 
     def create
          event = Event.new(event_params)
          if event.save 
-            render json: event, status: :accepted
+            # render json: event, status: :accepted
+            render json: EventSerializer.new(events), status: :accepted
          else
             render json: {errors: event.errors.full_messages}, status: :unprocessible_entity
          end
