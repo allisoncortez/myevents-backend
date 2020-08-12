@@ -17,15 +17,15 @@ class Api::V1::EventsController < ApplicationController
          event = Event.new(event_params)
          if event.save 
             # render json: event, status: :accepted
-            render json: EventSerializer.new(events), status: :accepted
+            render json: EventSerializer.new(event), status: :accepted
          else
             render json: {errors: event.errors.full_messages}, status: :unprocessible_entity
          end
     end
 
     def show 
-        event = Event.find_by(id: params[:id])
-        render json: event
+        event = Event.find_by_id(params[:id])
+        render json: EventSerializer.new(event)
     end
 
     # def destroy 
