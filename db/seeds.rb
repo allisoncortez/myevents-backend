@@ -10,26 +10,37 @@ Event.destroy_all
 
 
 artShow = Event.create(
-    
     title:"Monet",
     description: "free art show on the life of Monet and his work",
     startTime: Date.strptime("20071119T0837", "%Y%m%dT%H%M"),
     endTime: Date.strptime("12/13/2013", "%m/%d/%Y"),
     category: "art",
     location: "Museum of Fine Art"
-    )
+)
 
-    concert = Event.create(
+rockConcert = Event.create(
     title:"Courtney Bartnett",
-    description: "free show, spaces limited",
+    description: "spaces limited",
     startTime: Date.new(20021, 01, 10),
     endTime: Date.new(2021, 1, 10),
     category: "music",
     location: "HRC"
-    )
+)
 
-newComment = Comment.create(description: "description", event_id:1)
+liveMusic = Event.create(
+    title:"Orchestra",
+    description: "spaces limited",
+    startTime: Date.new(20021, 01, 10),
+    endTime: Date.new(2021, 1, 10),
+    category: "music",
+    location: "Outdoor Theatre"
+)
 
-# concert = Event.create()
-# danceContest = Event.create()
+comment1 = Comment.create(description: "comment1", event_id:1)
+comment2 = Comment.create(description: "comment2", event_id:1)
+comment3 = Comment.create(description: "comment3", event_id:2)
+comment4 = Comment.create(description: "comment4", event_id:2)
+comment5 = Comment.create(description: "comment5", event_id:2)
+comment6 = Comment.create(description: "comment6", event_id:3)
+comment7 = Comment.create(description: "comment7", event_id:3)
 
