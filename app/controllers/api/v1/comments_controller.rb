@@ -3,7 +3,7 @@ class Api::V1::CommentsController < ApplicationController
 
     def index
         comments = @event.comments
-        render json: CommentSerializer.new(events)
+        render json: CommentSerializer.new(comments)
     end
 
     def create 
