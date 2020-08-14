@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    before_action :set_event
+    before_action :set_event#, except: [:destroy]
 
     def index
         comments = @event.comments
@@ -13,6 +13,13 @@ class Api::V1::CommentsController < ApplicationController
         else
             render json: {errors: event.errors.full_messages}, status: :unprocessible_entity
         end
+    end
+
+    def destroy 
+        comment = Comment.find_by(id: params[:id]) 
+        comment.destroy
+        render json: CommentSerializer.new(comment)
+
     end
 
     private 
