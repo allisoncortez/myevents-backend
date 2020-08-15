@@ -1,13 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 Comment.destroy_all
 Event.destroy_all
-
 
 artShow = Event.create(
     title:"Monet",
@@ -36,11 +29,33 @@ liveMusic = Event.create(
     location: "Outdoor Theatre"
 )
 
-comment1 = Comment.create(description: "comment1", event_id:1)
-comment2 = Comment.create(description: "comment2", event_id:1)
-comment3 = Comment.create(description: "comment3", event_id:2)
-comment4 = Comment.create(description: "comment4", event_id:2)
-comment5 = Comment.create(description: "comment5", event_id:2)
-comment6 = Comment.create(description: "comment6", event_id:3)
-comment7 = Comment.create(description: "comment7", event_id:3)
+5.times do
+    Event.create(
+        title: Faker::Music.band,
+        description: Faker::Lorem.paragraph,
+        startTime: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all, format: :short),
+        endTime: Faker::Time.forward(days: 1,  period: :all, format: :short),
+        category:'music',
+        location: Faker::Address.street_address
+    )
+end
+
+5.times do
+    Event.create(
+        title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
+        description: Faker::Lorem.paragraph,
+        startTime: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all, format: :short),
+        endTime: Faker::Time.forward(days: 1,  period: :all, format: :short),
+        category:'art',
+        location: Faker::Address.street_address
+    )
+end
+
+comment1 = Comment.create(description: Faker::Lorem.sentences, event_id:1)
+comment2 = Comment.create(description: Faker::Lorem.sentences, event_id:1)
+comment3 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
+comment4 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
+comment5 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
+comment6 = Comment.create(description: Faker::Lorem.sentences, event_id:3)
+comment7 = Comment.create(description: Faker::Lorem.sentences, event_id:4)
 
