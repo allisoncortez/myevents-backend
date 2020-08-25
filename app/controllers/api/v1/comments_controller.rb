@@ -9,7 +9,8 @@ class Api::V1::CommentsController < ApplicationController
     def create 
         comment = @event.comments.build(comment_params)
         if comment.save
-            render json: CommentSerializer.new(comment), status: :accepted
+            # render json: CommentSerializer.new(comment), status: :accepted
+            render json: EventSerializer.new(@event), status: :accepted
         else
             render json: {errors: event.errors.full_messages}, status: :unprocessible_entity
         end
@@ -18,7 +19,7 @@ class Api::V1::CommentsController < ApplicationController
     def destroy 
         comment = Comment.find_by(id: params[:id]) 
         comment.destroy
-        render json: CommentSerializer.new(comment)
+        # render json: CommentSerializer.new(comment)
 
     end
 

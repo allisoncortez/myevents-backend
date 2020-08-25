@@ -40,9 +40,9 @@ liveMusic = Event.create(
     )
 end
 
-5.times do
+3.times do
     Event.create(
-        title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
+        title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 3),
         description: Faker::Lorem.paragraph,
         startTime: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all, format: :short),
         endTime: Faker::Time.forward(days: 1,  period: :all, format: :short),
@@ -51,11 +51,11 @@ end
     )
 end
 
-comment1 = Comment.create(description: Faker::Lorem.sentences, event_id:1)
-comment2 = Comment.create(description: Faker::Lorem.sentences, event_id:1)
-comment3 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
-comment4 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
-comment5 = Comment.create(description: Faker::Lorem.sentences, event_id:2)
-comment6 = Comment.create(description: Faker::Lorem.sentences, event_id:3)
-comment7 = Comment.create(description: Faker::Lorem.sentences, event_id:4)
+comment1 = Comment.create(description: Faker::Lorem.paragraph, event_id:1)
+comment2 = Comment.create(description: Faker::Lorem.paragraph, event_id:1)
+comment3 = Comment.create(description: Faker::Lorem.paragraph, event_id:2)
+comment4 = Comment.create(description: Faker::Lorem.paragraph, event_id:2)
+comment5 = Comment.create(description: Faker::Lorem.paragraph, event_id:2)
+comment6 = Comment.create(description: Faker::Lorem.paragraph, event_id:3)
+comment7 = Comment.create(description: Faker::Lorem.paragraph, event_id:4)
 
