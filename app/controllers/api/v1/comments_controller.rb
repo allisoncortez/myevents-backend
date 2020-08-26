@@ -17,10 +17,10 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def destroy 
-        comment = Comment.find_by(id: params[:id]) 
+        comment = Comment.find_by(id: params[:id])
+        event = Event.find(comment.event_id)
         comment.destroy
-        # render json: CommentSerializer.new(comment)
-
+        render json: EventSerializer.new(event)
     end
 
     private 
