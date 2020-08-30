@@ -19,11 +19,6 @@ class Api::V1::EventsController < ApplicationController
         render json: EventSerializer.new(event)
     end
 
-    # def destroy 
-    #     event = Event.find_by(id: params[:id]) 
-    #     event.destroy
-    # end
-
     private
     def event_params
         params.require(:event).permit(:title, :description, :startTime, :endTime, :category, :location)

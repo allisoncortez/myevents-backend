@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    before_action :set_event#, except: [:destroy]
+    before_action :set_event, except: [:destroy]
 
     def index
         comments = @event.comments
@@ -9,7 +9,6 @@ class Api::V1::CommentsController < ApplicationController
     def create 
         comment = @event.comments.build(comment_params)
         if comment.save
-            # render json: CommentSerializer.new(comment), status: :accepted
             render json: EventSerializer.new(@event), status: :accepted
         else
             render json: {errors: event.errors.full_messages}, status: :unprocessible_entity
